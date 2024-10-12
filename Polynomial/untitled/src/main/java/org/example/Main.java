@@ -8,6 +8,7 @@ public class Main {
             U.chooseOperation();
         }
         catch (Exception e){
+            System.out.println("Wrong input");
             e.printStackTrace();
             return;
         }

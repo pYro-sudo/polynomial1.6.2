@@ -47,6 +47,15 @@ class PolynomialApplicationTests {
     }
 
     @Test
+    void setMono(){
+        monomial M = new monomial();
+        M.setPower(10);
+        M.setValue(10);
+        Assertions.assertEquals(M.getValue(),10);
+        Assertions.assertEquals(M.getValue(),10);
+    }
+
+    @Test
     void testValueMono(){
         Assertions.assertEquals(Mono.getValue(),10.5);
     }
@@ -75,7 +84,7 @@ class PolynomialApplicationTests {
 
     @Test
     void polynomialSubtractionTest(){
-        Assertions.assertEquals(Poly.subtractPolynomial(Poly).getPolynomial().isEmpty(), true);
+        Assertions.assertTrue(Poly.subtractPolynomial(Poly).getPolynomial().isEmpty());
     }
 
     @Test
@@ -85,18 +94,19 @@ class PolynomialApplicationTests {
 
     @Test
     void multiplyPoly(){
-        Assertions.assertEquals(Poly.multiplyPolynomial(UnitPoly).subtractPolynomial(Poly).getPolynomial().isEmpty(),true);
+        Assertions.assertTrue(Poly.multiplyPolynomial(UnitPoly).subtractPolynomial(Poly).getPolynomial().isEmpty());
     }
 
     @Test
     void normalizationTest(){
         Poly1.normalizeRepresentation();
-        Assertions.assertEquals(Poly1.subtractPolynomial(Poly1).getPolynomial().isEmpty(),true);
+        Assertions.assertTrue(Poly1.subtractPolynomial(Poly1).getPolynomial().isEmpty());
     }
 
     @Test
     void dividePolynomials(){
-        Assertions.assertEquals(Poly.divPolynomial(Poly).subtractPolynomial(UnitPoly).getPolynomial().isEmpty(), true);
-        Assertions.assertEquals(Poly.modPolynomial(Poly).getPolynomial().isEmpty(), true);
+        Assertions.assertTrue(Poly.divPolynomial(Poly).subtractPolynomial(UnitPoly).getPolynomial().isEmpty());
+        Assertions.assertTrue(Poly.modPolynomial(Poly).getPolynomial().isEmpty());
     }
+
 }

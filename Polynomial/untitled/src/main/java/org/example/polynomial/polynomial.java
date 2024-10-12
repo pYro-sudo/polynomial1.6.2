@@ -2,6 +2,7 @@ package org.example.polynomial;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,13 +16,13 @@ public class polynomial {
         return Polynomial;
     }
 
-    public void setMonomial(Integer power, Double value){
+    public void setMonomial(Integer power, Double value) throws IOException {
         monomial Mono = new monomial();
         Mono.setValue(value); Mono.setPower(power);
         this.Polynomial.add(Mono);
     }
 
-    public void normalizeRepresentation(){
+    public void normalizeRepresentation() {
         for(monomial M:this.Polynomial){
             for(monomial N:this.Polynomial){
                 if(M.getPower()>N.getPower()){
@@ -37,7 +38,7 @@ public class polynomial {
         return Polynomial.stream().filter(x -> x.getPower().equals(power)).toList();
     }
 
-    public double evaluate(@NotNull double value){
+    public double evaluate(double value) {
         double result;
         result = 0;
         for(monomial M:Polynomial){
