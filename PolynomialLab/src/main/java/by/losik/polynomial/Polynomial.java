@@ -132,7 +132,7 @@ public class Polynomial {
 
                 List<Monomial> qualifierList = new ArrayList<>();
                 qualifierList.add(qualifierForAdding);
-                by.losik.polynomial.Polynomial qualifierPolynomial = new Polynomial();
+                Polynomial qualifierPolynomial = new Polynomial();
                 qualifierPolynomial.setPolynomial(qualifierList);
 
                 divResult.setPolynomial(divResult.subtractPolynomial(qualifierPolynomial.multiplyPolynomial(polynomial)).getPolynomial());
@@ -144,12 +144,12 @@ public class Polynomial {
     }
 
     public Polynomial modPolynomial(Polynomial polynomial){
-        by.losik.polynomial.Polynomial tempForDiv = new Polynomial();
+        Polynomial tempForDiv = new Polynomial();
         tempForDiv.setPolynomial(Polynomial);
 
-        by.losik.polynomial.Polynomial temp = new Polynomial();
-        temp.setPolynomial(Polynomial);
+        Polynomial temporaryForMod = new Polynomial();
+        temporaryForMod.setPolynomial(Polynomial);
 
-        return temp.subtractPolynomial(tempForDiv.multiplyPolynomial(tempForDiv.divPolynomial(polynomial)));
+        return temporaryForMod.subtractPolynomial(tempForDiv.multiplyPolynomial(tempForDiv.divPolynomial(polynomial)));
     }
 }
