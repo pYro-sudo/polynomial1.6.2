@@ -14,7 +14,7 @@ public class Polynomial {
         return Polynomial;
     }
 
-    public Monomial setMonomial(Integer power, Double value) throws IOException {
+    public Monomial addMonomial(Integer power, Double value) throws IOException {
         Monomial monomial = new Monomial();
         monomial.setValue(value); monomial.setPower(power);
         this.Polynomial.add(monomial);
