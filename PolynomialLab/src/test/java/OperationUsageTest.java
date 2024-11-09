@@ -51,6 +51,6 @@ public class OperationUsageTest {
         Assertions.assertEquals(operationsUsage.getPolynomial().getPolynomial(),testList);
         Assert.assertTrue(operationsUsage.getPolynomial1() instanceof Polynomial);
         Assert.assertTrue(operationsUsage.printer(new Polynomial()) instanceof Polynomial);
-        Assert.assertTrue(polynomial.setMonomial(10,10.0) instanceof Monomial);
+        Assert.assertTrue(polynomial.addMonomial(10,10.0) instanceof Monomial);
     }
 }
