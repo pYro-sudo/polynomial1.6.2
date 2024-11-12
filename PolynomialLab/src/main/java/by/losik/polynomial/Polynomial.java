@@ -40,20 +40,20 @@ public class Polynomial {
     public double evaluate(double value) {
         double result;
         result = 0;
-        for(Monomial M:Polynomial){
-            result+=M.getValue()*Math.pow(value,M.getPower());
+        for(Monomial monomial:Polynomial){
+            result+=monomial.getValue()*Math.pow(value,monomial.getPower());
         }
         return result;
     }
 
-    public Polynomial polynomialSum(Polynomial P){
+    public Polynomial polynomialSum(Polynomial polynomial){
         List<Monomial> monomialArrayList = new ArrayList<>();
-        for (Monomial itemsInFirst: P.getPolynomial()) {
+        for (Monomial itemsInFirst: polynomial.getPolynomial()) {
             Monomial itemsInSecond = new Monomial();
-            for(Monomial N: Polynomial){
-                if(itemsInFirst.getPower() == N.getPower() && itemsInFirst.getValue() == -N.getValue()){
+            for(Monomial itemsInPolynomial: Polynomial){
+                if(itemsInFirst.getPower() == itemsInPolynomial.getPower() && itemsInFirst.getValue() == -itemsInPolynomial.getValue()){
                     itemsInSecond.setPower(itemsInFirst.getPower());
-                    itemsInSecond.setValue(itemsInFirst.getValue()+N.getValue());
+                    itemsInSecond.setValue(itemsInFirst.getValue()+itemsInPolynomial.getValue());
                     monomialArrayList.add(itemsInSecond);
                     break;
                 }
@@ -65,9 +65,9 @@ public class Polynomial {
         return Result;
     }
 
-    public Polynomial subtractPolynomial(Polynomial P){
+    public Polynomial subtractPolynomial(Polynomial polynomial){
         List<Monomial> result = new ArrayList<>();
-        for(Monomial itemInFirst:P.getPolynomial()){
+        for(Monomial itemInFirst:polynomial.getPolynomial()){
             Monomial compareResult = new Monomial();
             for(Monomial itemInSecond:Polynomial){
                 if(itemInSecond.getPower() == itemInFirst.getPower() && !(itemInSecond.getValue() == itemInFirst.getValue())) {
