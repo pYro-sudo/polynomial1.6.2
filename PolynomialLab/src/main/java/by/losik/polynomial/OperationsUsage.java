@@ -11,10 +11,10 @@ public class OperationsUsage {
     }
     public Polynomial getPolynomial1(){return polynomial1;}
 
-    public Polynomial printer(Polynomial P){
-        P.getPolynomial().forEach(x->System.out.print(x.getValue()+"*x^"+x.getPower()));
+    public Polynomial printer(Polynomial polynomial){
+        polynomial.getPolynomial().forEach(x->System.out.print(x.getValue()+"*x^"+x.getPower()));
         System.out.print("\n");
-        return P;
+        return polynomial;
     }
     public void inputCoefficients() {
         Scanner scanner = new Scanner(System.in);
@@ -43,12 +43,12 @@ public class OperationsUsage {
 
         while(!scanner.nextLine().equals('q')){
             try{
-                double val; int power;
+                double value; int power;
                 System.out.println("Enter the power");
                 power = scanner.nextInt();
                 System.out.println("Enter the value of the coefficient");
-                val = scanner.nextDouble();
-                this.polynomial1.setMonomial(power,val);
+                value = scanner.nextDouble();
+                this.polynomial1.setMonomial(power,value);
             }
             catch (Exception e){
                 System.out.println("Wrong input");
