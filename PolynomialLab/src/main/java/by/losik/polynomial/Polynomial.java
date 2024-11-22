@@ -5,25 +5,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Polynomial {
-    private List<Monomial> Polynomial = new ArrayList<>();
+    private List<Monomial> polynomial = new ArrayList<>();
 
-    public void setPolynomial(List<Monomial> Poly){
-        this.Polynomial = Poly;
+    public void setPolynomial(List<Monomial> polynomial){
+        this.polynomial = polynomial;
     }
     public List<Monomial> getPolynomial() {
-        return Polynomial;
+        return polynomial;
     }
 
     public Monomial addMonomial(Integer power, Double value) throws IOException {
         Monomial monomial = new Monomial();
         monomial.setValue(value); monomial.setPower(power);
-        this.Polynomial.add(monomial);
+        this.polynomial.add(monomial);
         return monomial;
     }
 
     public void normalizeRepresentation() {
-        for(Monomial itemsInFirst:this.Polynomial){
-            for(Monomial itemsInSecond:this.Polynomial){
+        for(Monomial itemsInFirst:this.polynomial){
+            for(Monomial itemsInSecond:this.polynomial){
                 if(itemsInFirst.getPower()>itemsInSecond.getPower()){
                     Monomial temporaryForSwap = itemsInFirst;
                     itemsInFirst = itemsInSecond;
@@ -34,13 +34,13 @@ public class Polynomial {
     }
 
     public List<Monomial> getCoefficients(int power){
-        return Polynomial.stream().filter(x -> x.getPower() == power).toList();
+        return polynomial.stream().filter(x -> x.getPower() == power).toList();
     }
 
     public double evaluate(double value) {
         double result;
         result = 0;
-        for(Monomial monomial:Polynomial){
+        for(Monomial monomial:polynomial){
             result+=monomial.getValue()*Math.pow(value,monomial.getPower());
         }
         return result;
@@ -50,7 +50,7 @@ public class Polynomial {
         List<Monomial> monomialArrayList = new ArrayList<>();
         for (Monomial itemsInFirst: polynomial.getPolynomial()) {
             Monomial itemsInSecond = new Monomial();
-            for(Monomial itemsInPolynomial: Polynomial){
+            for(Monomial itemsInPolynomial: polynomial){
                 if(itemsInFirst.getPower() == itemsInPolynomial.getPower() && itemsInFirst.getValue() == -itemsInPolynomial.getValue()){
                     itemsInSecond.setPower(itemsInFirst.getPower());
                     itemsInSecond.setValue(itemsInFirst.getValue()+itemsInPolynomial.getValue());
@@ -60,9 +60,9 @@ public class Polynomial {
             }
         }
 
-        Polynomial Result = new Polynomial();
-        Result.setPolynomial(monomialArrayList);
-        return Result;
+        Polynomial sumResult = new Polynomial();
+        sumResult.setPolynomial(monomialArrayList);
+        return sumResult;
     }
 
     public Polynomial subtractPolynomial(Polynomial polynomial){
@@ -79,14 +79,14 @@ public class Polynomial {
             }
         }
 
-        Polynomial Result = new Polynomial();
-        Result.setPolynomial(result);
-        return Result;
+        Polynomial substractionResult = new Polynomial();
+        substractionResult.setPolynomial(result);
+        return substractionResult;
     }
 
 
     public Polynomial multiplyPolynomial(Polynomial polynomial){
-        by.losik.polynomial.Polynomial result = new Polynomial();
+        Polynomial multiplicationResult = new Polynomial();
         List<Monomial> MonomialArrayList = new ArrayList<>();
 
         for(Monomial itemInFirst: Polynomial){
@@ -108,8 +108,8 @@ public class Polynomial {
         }
 
 
-        result.setPolynomial(MonomialArrayList);
-        return result;
+        multiplicationResult.setPolynomial(MonomialArrayList);
+        return multiplicationResult;
     }
 
     public Polynomial divPolynomial(Polynomial polynomial){
